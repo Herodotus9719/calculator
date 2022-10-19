@@ -1,0 +1,101 @@
+.item1 {
+    grid-area: result;
+}
+
+.item2 {
+    grid-area: num1;
+}
+
+.item3 {
+    grid-area: num2;
+}
+
+.item4 {
+    grid-area: num3;
+}
+
+.item5 {
+    grid-area: ac;
+}
+
+.item6 {
+    grid-area: num4;
+}
+
+.item7 {
+    grid-area: num5;
+}
+
+.item8 {
+    grid-area: num6;
+}
+
+.item9 {
+    grid-area: minus;
+}
+
+.item10 {
+    grid-area: num7;
+}
+
+.item11 {
+    grid-area: num8;
+}
+
+.item12 {
+    grid-area: num9;
+}
+
+.item13 {
+    grid-area: plus;
+}
+
+.item14 {
+    grid-area: num0;
+}
+
+.item15 {
+    grid-area: dot;
+}
+
+.item16 {
+    grid-area: star;
+}
+
+.item17 {
+    grid-area: slash;
+}
+
+.item18 {
+    grid-area: enter;
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'result result result result result result result'
+        'num1 num1 num2 num2 num3 num3 ac'
+        'num4 num4 num5 num5 num6 num6 minus'
+        'num7 num7 num8 num8 num9 num9 plus'
+        'num0 num0 dot star slash enter enter';
+    gap: 4px;
+    background-color: rgb(55, 11, 11);
+    padding: 4px;
+}
+
+.grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: right;
+    padding-right: 100px;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.grid-container>button {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
