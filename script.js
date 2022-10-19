@@ -1,3 +1,4 @@
+
 function add(...args) {
     let total = 0;
     for (let n of args) {
@@ -42,18 +43,10 @@ function operate(operator, ...nums) {
     }
 }
 
-// let displayValue = '';
-// let operator = '';
-// let number1 = NaN;
-// let number2 = NaN;
-// let total = NaN;
+
 
 const buttons = document.querySelectorAll('button');
 
-window.addEventListener('keydown', function (e) {
-    const key = document.querySelector(`button[data-key='${e.keyCode}']`);
-    key.click();
-});
 
 let displayValue = '';
 let operator = '';
@@ -131,8 +124,7 @@ dot.addEventListener('click', () => {
     } else return;
 });
 
-
-plus.addEventListener('click', () => {
+function plusEvent() {
     if (!number1) {
         number1 = Number(displayValue);
         operator = '+';
@@ -152,9 +144,9 @@ plus.addEventListener('click', () => {
         operator = "+";
         dotUsed = false;
     }
-})
+}
 
-minus.addEventListener('click', () => {
+function minusEvent() {
     if (!number1) {
         number1 = Number(displayValue);
         operator = '-';
@@ -174,9 +166,9 @@ minus.addEventListener('click', () => {
         operator = "-";
         dotUsed = false;
     }
-})
+}
 
-star.addEventListener('click', () => {
+function multiplyEvent() {
     if (!number1) {
         number1 = Number(displayValue);
         operator = '*';
@@ -196,9 +188,9 @@ star.addEventListener('click', () => {
         operator = "*";
         dotUsed = false;
     }
-})
+}
 
-slash.addEventListener('click', () => {
+function divideEvent() {
     if (!number1) {
         number1 = Number(displayValue);
         operator = '/';
@@ -218,9 +210,9 @@ slash.addEventListener('click', () => {
         operator = "/";
         dotUsed = false;
     }
-})
+}
 
-enter.addEventListener('click', () => {
+function enterEvent() {
     if (!number1) {
         return;
     }
@@ -237,65 +229,110 @@ enter.addEventListener('click', () => {
         operator = '';
         dotUsed = false;
     }
-})
+}
 
-del.addEventListener('click', () => {
+function delEvent() {
     displayValue = '';
     result.textContent = '0';
     number1 = NaN;
     number2 = NaN;
+}
+
+plus.addEventListener('click', () => {
+    plusEvent();
+})
+
+minus.addEventListener('click', () => {
+    minusEvent();
+})
+
+star.addEventListener('click', () => {
+    multiplyEvent();
+})
+
+slash.addEventListener('click', () => {
+    divideEvent();
+})
+
+enter.addEventListener('click', () => {
+    enterEvent();
+})
+
+del.addEventListener('click', () => {
+    delEvent();
 })
 
 
+document.addEventListener('keydown', e => {
+    console.log(e);
+    if (e.key === '1') {
+        displayValue += "1";
+        result.textContent = displayValue;
+    }
+    if (e.key === '2') {
+        displayValue += "2";
+        result.textContent = displayValue;
+    }
+    if (e.key === '3') {
+        displayValue += "3";
+        result.textContent = displayValue;
+    }
+    if (e.key === '4') {
+        displayValue += "4";
+        result.textContent = displayValue;
+    }
+    if (e.key === '5') {
+        displayValue += "5";
+        result.textContent = displayValue;
+    }
+    if (e.key === '6') {
+        displayValue += "6";
+        result.textContent = displayValue;
+    }
+    if (e.key === '7') {
+        displayValue += "7";
+        result.textContent = displayValue;
+    }
+    if (e.key === '8') {
+        displayValue += "8";
+        result.textContent = displayValue;
+    }
+    if (e.key === '9') {
+        displayValue += "9";
+        result.textContent = displayValue;
+    }
+    if (e.key === '0') {
+        displayValue += "0";
+        result.textContent = displayValue;
+    }
 
 
-// minus.addEventListener('click', () => {
-//     if (!total) {
-//         number1 = Number(displayValue);
-//         displayValue = '';
-//         result.textContent = '';
-//         operator = '-';
-//     } else {
-//         number2 = Number(displayValue);
-//         let res = operate('-', number1, number2);
-//         result.textContent = res;
-//         number2 = NaN;
-//         number1 = res;
-//         displayValue = res;
-//         total = res;
-//     }
-// })
-// plus.addEventListener('click', () => {
-//     number1 = Number(displayValue);
-//     displayValue = '';
-//     result.textContent = '';
-//     operator = '+';
-// })
-// star.addEventListener('click', () => {
-//     number1 = Number(displayValue);
-//     displayValue = '';
-//     result.textContent = '';
-//     operator = '*';
-// })
-// slash.addEventListener('click', () => {
-//     number1 = Number(displayValue);
-//     displayValue = '';
-//     result.textContent = '';
-//     operator = '/';
-// })
+    if (e.key === 'Backspace') {
+        delEvent();
+    }
+    if (e.key === '-') {
+        minusEvent();
+    }
+    if (e.key === '+' || e.key === '=') {
+        plusEvent();
+    }
+    if (e.key === '*') {
+        multiplyEvent();
+    }
+    if (e.key === '/') {
+        divideEvent();
+    }
+    if (e.key === 'Enter') {
+        enterEvent();
+    }
 
-// enter.addEventListener('click', () => {
-//     number2 = Number(displayValue);
-//     let res = operate(operator, number1, number2);
-//     result.textContent = res;
-//     number2 = NaN;
-//     number1 = res;
-//     displayValue = res;
-// })
 
-// del.addEventListener('click', () => {
-//     displayValue = '';
-//     result.textContent = '0';
-//     number1 = NaN;
-//     number2 = NaN;
-// })
+    if (e.key === '.') {
+        if (!dotUsed) {
+            displayValue += ".";
+            result.textContent = displayValue;
+            dotUsed = true;
+        } else return;
+    }
+
+})
